@@ -1,12 +1,18 @@
 
-const strengthIncreaseButton = document.querySelector("#strength-increase");
-const strengthDecreaseButton = document.querySelector("#strength-decrease");
-const defenseIncreaseButton = document.querySelector("#defense-increase");
-const defenseDecreaseButton = document.querySelector("#defense-decrease");
-const agilityIncreaseButton = document.querySelector("#agility-increase");
-const agilityDecreaseButton = document.querySelector("#agility-decrease");
-const perceptionIncreaseButton = document.querySelector("#perception-increase");
-const perceptionDecreaseButton = document.querySelector("#perception-decrease");
+const fightIncreaseButton = document.querySelector("#fight-increase");
+const fightDecreaseButton = document.querySelector("#fight-decrease");
+const intelligenceIncreaseButton = document.querySelector("#intelligence-increase");
+const intelligenceDecreaseButton = document.querySelector("#intelligence-decrease");
+const shotIncreaseButton = document.querySelector("#shot-increase");
+const shotDecreaseButton = document.querySelector("#shot-decrease");
+const atletismIncreaseButton = document.querySelector("#atletism-increase");
+const atletismDecreaseButton = document.querySelector("#atletism-decrease");
+const ocultismIncreaseButton = document.querySelector("#ocultism-increase");
+const ocultismDecreaseButton = document.querySelector("#ocultism-decrease");
+const medicineIncreaseButton = document.querySelector("#medicine-increase");
+const medicineDecreaseButton = document.querySelector("#medicine-decrease");
+const therapyIncreaseButton = document.querySelector("#therapy-increase");
+const therapyDecreaseButton = document.querySelector("#therapy-decrease");
 const attributeButtons = document.querySelectorAll(".attribute-icon");
 const resetButton = document.querySelector("#reset-button");
 const confirmResetScreen = document.querySelector(".confirm-reset-screen");
@@ -27,15 +33,18 @@ const skillsArea = document.querySelector(".skills-area");
 
 
 const lifeBar = document.querySelector(".life-bar");
-const manaBar = document.querySelector(".mana-bar");
+const sanityBar = document.querySelector(".sanity-bar");
 const lifeValue = document.querySelector(".life-value");
-const manaValue = document.querySelector(".mana-value");
+const sanityValue = document.querySelector(".sanity-value");
 
 
-const strengthAttribute = document.querySelector("#strength");
-const defenseAttribute = document.querySelector("#defense");
-const agilityAttribute = document.querySelector("#agility");
-const perceptionAttribute = document.querySelector("#perception");
+const fightAttribute = document.querySelector("#fight");
+const intelligenceAttribute = document.querySelector("#intelligence");
+const shotAttribute = document.querySelector("#shot");
+const atletismAttribute = document.querySelector("#atletism");
+const ocultismAttribute = document.querySelector("#intelligence");
+const medicineAttribute = document.querySelector("#shot");
+const therapyAttribute = document.querySelector("#atletism");
 
 
 const skillDescriptionScreen = document.querySelector(".skill-description");
@@ -43,79 +52,82 @@ const skillDescriptionScreenCloseButton = document.querySelector(".skill-descrip
 const skillDescriptionText = document.querySelector(".skill-description p");
 const skill1Label = document.querySelector("#skill1-label");
 const skill2Label = document.querySelector("#skill2-label");
-const transformationLabel = document.querySelector("#transformation-label");
 
 const skill1 = document.querySelector("#skill1");
 const skill2 = document.querySelector("#skill2");
 
 const skill1Text = 'Hemomancia: Controle total do sangue.<br/> "Dizem ser possível matar o oponente de dentro para fora com isso, mas só alguns de sangue puro conseguem".';
 const skill2Text = 'Frenesi: Se transformar na sua real forma.<br/>"Dizem ser preciso perder bem mais que apenas a sanidade para se transformar em tal forma".';
-const transformationText = 'Transformação: Pode se transformar em qualquer animal.<br/>"Até um vampiro pode ter presas de lobo".';
 
 
-
-let vaarkis;
+let trevor;
 
 
 function increaseAttribute(propertyName, element){
-	vaarkis[propertyName] ++;
-	element.innerHTML = vaarkis[propertyName];
+	trevor[propertyName] ++;
+	element.innerHTML = trevor[propertyName];
 }
 
 function decreaseAttribute(propertyName, element){
-	vaarkis[propertyName] --;
-	element.innerHTML = vaarkis[propertyName];
+	trevor[propertyName] --;
+	element.innerHTML = trevor[propertyName];
 }
 
 function displayAttributes(){
-	lifeValue.innerHTML = vaarkis.life;
-	manaValue.innerHTML = vaarkis.mana;
-	lifeBar.style.width = `${percentage(vaarkis.life, vaarkis.maxLife)}%`;
-	manaBar.style.width = `${percentage(vaarkis.mana, vaarkis.maxMana)}%`;
-	strengthAttribute.innerHTML = vaarkis.strength;
-	defenseAttribute.innerHTML = vaarkis.defense;
-	agilityAttribute.innerHTML = vaarkis.agility;
-	perceptionAttribute.innerHTML = vaarkis.perception;
-	skill1.innerHTML = vaarkis.skill1;
-	skill2.innerHTML = vaarkis.skill2;
+	lifeValue.innerHTML = trevor.life;
+	sanityValue.innerHTML = trevor.sanity;
+	lifeBar.style.width = `${percentage(trevor.life, trevor.maxLife)}%`;
+	sanityBar.style.width = `${percentage(trevor.sanity, trevor.maxSanity)}%`;
+	fightAttribute.innerHTML = trevor.fight;
+	intelligenceAttribute.innerHTML = trevor.intelligence;
+	shotAttribute.innerHTML = trevor.shot;
+	atletismAttribute.innerHTML = trevor.atletism;
+	ocultismAttribute.innerHTML = trevor.atletism;
+	medicineAttribute.innerHTML = trevor.atletism;
+	therapyAttribute.innerHTML = trevor.atletism;
+	skill1.innerHTML = trevor.skill1;
+	skill2.innerHTML = trevor.skill2;
 }
 
 function resetStats(){
-	window.localStorage.removeItem("vaarkis_key");
-	getVaarkis();
+	window.localStorage.removeItem("trevor_key");
+	getTrevor();
 	displayAttributes();
 	confirmResetScreen.classList.add("d-none");
 }
 
 
-const getVaarkis = () =>{
+const getTrevor = () =>{
 	try {
 	//Variável recebendo o objeto salvo (não significa que ele exista, sendo assim, o teste não falha mesmo se o objeto não existir)
-		vaarkis = JSON.parse(window.localStorage.getItem("vaarkis_key"));
-	//Já a partir daqui, o código tenta atribuir os valores salvos no objeto da variável aos elementos html, algo que só vai acontecer se a variável vaarkis possuir esses valores, ou seja, se ela recebeu um objeto salvo no localStorage.
+		trevor = JSON.parse(window.localStorage.getItem("trevor_key"));
+	//Já a partir daqui, o código tenta atribuir os valores salvos no objeto da variável aos elementos html, algo que só vai acontecer se a variável trevor possuir esses valores, ou seja, se ela recebeu um objeto salvo no localStorage.
 	
 	//Se os elementos não conseguirem receber os valores, significa que essees valores não existem, assim como o objeto requisitado, então o teste falha e passa para o catch
-		lifeValue.innerHTML = vaarkis.life;
-		manaValue.innerHTML = vaarkis.mana;
-		lifeBar.style.width = `${percentage(vaarkis.life, vaarkis.maxLife)}%`;
-		manaBar.style.width = `${percentage(vaarkis.mana, vaarkis.maxMana)}%`;
-		strengthAttribute.innerHTML = vaarkis.strength;
-		defenseAttribute.innerHTML = vaarkis.defense;
-		agilityAttribute.innerHTML = vaarkis.agility;
-		perceptionAttribute.innerHTML = vaarkis.perception;
-		skill1.innerHTML = vaarkis.skill1;
-		skill2.innerHTML = vaarkis.skill2;
+		lifeValue.innerHTML = trevor.life;
+		sanityValue.innerHTML = trevor.sanity;
+		lifeBar.style.width = `${percentage(trevor.life, trevor.maxLife)}%`;
+		sanityBar.style.width = `${percentage(trevor.sanity, trevor.maxSanity)}%`;
+		fightAttribute.innerHTML = trevor.fight;
+		intelligenceAttribute.innerHTML = trevor.intelligence;
+		shotAttribute.innerHTML = trevor.shot;
+		atletismAttribute.innerHTML = trevor.atletism;
+		ocultismAttribute.innerHTML = trevor.atletism;
+		medicineAttribute.innerHTML = trevor.atletism;
+		therapyAttribute.innerHTML = trevor.atletism;
+		skill1.innerHTML = trevor.skill1;
+		skill2.innerHTML = trevor.skill2;
 	}
 	catch {
-		vaarkis = {
+		trevor = {
 		life: 250,
-		mana: 200,
+		sanity: 200,
 		maxLife: 250,
-		maxMana: 200,
-		strength: 1,
-		defense: 1,
-		agility: 1,
-		perception: 1,
+		maxSanity: 200,
+		fight: 1,
+		intelligence: 1,
+		shot: 1,
+		atletism: 1,
 		skill1: 1,
 		skill2: 1
 		};
@@ -125,7 +137,7 @@ const getVaarkis = () =>{
 	}
 };
 
-getVaarkis();
+getTrevor();
 
 
 function percentage(numA, numB){
@@ -135,14 +147,14 @@ function percentage(numA, numB){
 function changeHpMp(bar, barValue, propertyName, maxPropertyName){
 	let newValue = prompt("Insira o novo valor:");
 	if (newValue !== "" && newValue !== null){
-		if (newValue > vaarkis[maxPropertyName]){
-			vaarkis[maxPropertyName] = newValue;
+		if (newValue > trevor[maxPropertyName]){
+			trevor[maxPropertyName] = newValue;
 		}
-		vaarkis[propertyName] = newValue;
-		bar.style.width = `${percentage(vaarkis[propertyName], vaarkis[maxPropertyName])}%`;
+		trevor[propertyName] = newValue;
+		bar.style.width = `${percentage(trevor[propertyName], trevor[maxPropertyName])}%`;
 	}
-	barValue.innerHTML = vaarkis[propertyName];
-	window.localStorage.setItem("vaarkis_key", JSON.stringify(vaarkis));
+	barValue.innerHTML = trevor[propertyName];
+	window.localStorage.setItem("trevor_key", JSON.stringify(trevor));
 }
 
 
@@ -155,36 +167,36 @@ function displayDescriptionScreen(text){
 
 
 
-strengthIncreaseButton.addEventListener("click", function(){
-	increaseAttribute("strength", strengthAttribute);
+fightIncreaseButton.addEventListener("click", function(){
+	increaseAttribute("fight", fightAttribute);
 });
 
-strengthDecreaseButton.addEventListener("click", function(){
-	decreaseAttribute("strength", strengthAttribute);
+fightDecreaseButton.addEventListener("click", function(){
+	decreaseAttribute("fight", fightAttribute);
 });
 
-defenseIncreaseButton.addEventListener("click", function(){
-	increaseAttribute("defense", defenseAttribute);
+intelligenceIncreaseButton.addEventListener("click", function(){
+	increaseAttribute("intelligence", intelligenceAttribute);
 });
 
-defenseDecreaseButton.addEventListener("click", function(){
-	decreaseAttribute("defense", defenseAttribute);
+intelligenceDecreaseButton.addEventListener("click", function(){
+	decreaseAttribute("intelligence", intelligenceAttribute);
 });
 
-agilityIncreaseButton.addEventListener("click", function(){
-	increaseAttribute("agility", agilityAttribute);
+shotIncreaseButton.addEventListener("click", function(){
+	increaseAttribute("shot", shotAttribute);
 });
 
-agilityDecreaseButton.addEventListener("click", function(){
-	decreaseAttribute("agility", agilityAttribute);
+shotDecreaseButton.addEventListener("click", function(){
+	decreaseAttribute("shot", shotAttribute);
 });
 
-perceptionIncreaseButton.addEventListener("click", function(){
-	increaseAttribute("perception", perceptionAttribute);
+atletismIncreaseButton.addEventListener("click", function(){
+	increaseAttribute("atletism", atletismAttribute);
 });
 
-perceptionDecreaseButton.addEventListener("click", function(){
-	decreaseAttribute("perception", perceptionAttribute);
+atletismDecreaseButton.addEventListener("click", function(){
+	decreaseAttribute("atletism", atletismAttribute);
 });
 
 skill1IncreaseButton.addEventListener("click", function(){
@@ -206,13 +218,13 @@ skill2DecreaseButton.addEventListener("click", function(){
 lifeValue.addEventListener("click", function(){
 	changeHpMp(lifeBar, lifeValue, "life", "maxLife");
 });
-manaValue.addEventListener("click", function(){
-	changeHpMp(manaBar, manaValue, "mana", "maxMana");
+sanityValue.addEventListener("click", function(){
+	changeHpMp(sanityBar, sanityValue, "sanity", "maxSanity");
 });
 
 attributeButtons.forEach(function(element){
 	element.addEventListener("click", function(){
-		window.localStorage.setItem("vaarkis_key", JSON.stringify(vaarkis));
+		window.localStorage.setItem("trevor_key", JSON.stringify(trevor));
 	});
 });
 
@@ -256,8 +268,4 @@ skill1Label.addEventListener("click", function(){
 
 skill2Label.addEventListener("click", function(){
 	displayDescriptionScreen(skill2Text);
-});
-
-transformationLabel.addEventListener("click", function(){
-	displayDescriptionScreen(transformationText);
 });

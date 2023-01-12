@@ -73,12 +73,12 @@
 
 .stats-area h2{
 	font-family: "Marker";
-	font-size: 7.5vw;
+	font-size: 6vw;
 	color: black;
 }
 
 .stats-area ul li{
-	font-size: 5.5vw;
+	font-size: 4.5vw;
 	font-family: "Aleo";
 	font-weight: bold;
 	color: black;
@@ -86,7 +86,7 @@
 }
 
 .stats-area .block2{
-	font-size: 7vw;
+	font-size: 6vw;
 }
 
 .stats-area ul li img{
@@ -173,14 +173,14 @@
 	font-size: 5vw!important;
 }
 
-.hp-mp-text{
+.hp-sa-text{
 	font-size: 4.5vw;
 	font-family: "Aleo";
 	font-weight: bold;
 	color: black;
 }
 
-.life-bar-area, .mana-bar-area{
+.life-bar-area, .sanity-bar-area{
 	width: 65vw;
 	height: 7vw;
 	border: 2px solid black;
@@ -189,20 +189,20 @@
 }
 
 
-.life-bar, .mana-bar{
+.life-bar, .sanity-bar{
 	position: absolute;
 	height: 100%;
 	z-index: 1;
 }
 
 .life-bar{
-	background-color: gold;
+	background-color: #EE4B2B;
 	width: 100%;
 	transition: 1.5s ease-out;
 }
 
-.mana-bar{
-	background-color: #0096FF;
+.sanity-bar{
+	background-color: rgb(255, 196, 0);
 	width: 100%;
 	transition: 1.5s ease-out;
 }
@@ -229,7 +229,7 @@
 	background-color: #8B4513;
 }
 
-.life-value, .mana-value{
+.life-value, .sanity-value{
 	position: absolute;
 	z-index: 2;
 	display: block;
