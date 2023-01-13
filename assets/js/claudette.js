@@ -60,66 +60,66 @@ const skill1Text = 'Hemomancia: Controle total do sangue.<br/> "Dizem ser possí
 const consumableText = 'Frenesi: Se transformar na sua real forma.<br/>"Dizem ser preciso perder bem mais que apenas a sanidade para se transformar em tal forma".';
 
 
-let trevor;
+let claudette;
 
 
 function increaseAttribute(propertyName, element){
-	trevor[propertyName] ++;
-	element.innerHTML = trevor[propertyName];
+	claudette[propertyName] ++;
+	element.innerHTML = claudette[propertyName];
 }
 
 function decreaseAttribute(propertyName, element){
-	trevor[propertyName] --;
-	element.innerHTML = trevor[propertyName];
+	claudette[propertyName] --;
+	element.innerHTML = claudette[propertyName];
 }
 
 function displayAttributes(){
-	lifeValue.innerHTML = trevor.life;
-	sanityValue.innerHTML = trevor.sanity;
-	lifeBar.style.width = `${percentage(trevor.life, trevor.maxLife)}%`;
-	sanityBar.style.width = `${percentage(trevor.sanity, trevor.maxSanity)}%`;
-	fightAttribute.innerHTML = trevor.fight;
-	intelligenceAttribute.innerHTML = trevor.intelligence;
-	shotAttribute.innerHTML = trevor.shot;
-	atletismAttribute.innerHTML = trevor.atletism;
-	ocultismAttribute.innerHTML = trevor.atletism;
-	medicineAttribute.innerHTML = trevor.atletism;
-	therapyAttribute.innerHTML = trevor.atletism;
-	skill1.innerHTML = trevor.skill1;
-	consumable.innerHTML = trevor.consumable;
+	lifeValue.innerHTML = claudette.life;
+	sanityValue.innerHTML = claudette.sanity;
+	lifeBar.style.width = `${percentage(claudette.life, claudette.maxLife)}%`;
+	sanityBar.style.width = `${percentage(claudette.sanity, claudette.maxSanity)}%`;
+	fightAttribute.innerHTML = claudette.fight;
+	intelligenceAttribute.innerHTML = claudette.intelligence;
+	shotAttribute.innerHTML = claudette.shot;
+	atletismAttribute.innerHTML = claudette.atletism;
+	ocultismAttribute.innerHTML = claudette.atletism;
+	medicineAttribute.innerHTML = claudette.atletism;
+	therapyAttribute.innerHTML = claudette.atletism;
+	skill1.innerHTML = claudette.skill1;
+	consumable.innerHTML = claudette.consumable;
 }
 
 function resetStats(){
-	window.localStorage.removeItem("trevor_key");
-	getTrevor();
+	window.localStorage.removeItem("claudette_key");
+	getClaudette();
 	displayAttributes();
 	confirmResetScreen.classList.add("d-none");
 }
 
 
-const getTrevor = () =>{
+const getClaudette = () =>{
 	try {
 	//Variável recebendo o objeto salvo (não significa que ele exista, sendo assim, o teste não falha mesmo se o objeto não existir)
-		trevor = JSON.parse(window.localStorage.getItem("trevor_key"));
-	//Já a partir daqui, o código tenta atribuir os valores salvos no objeto da variável aos elementos html, algo que só vai acontecer se a variável trevor possuir esses valores, ou seja, se ela recebeu um objeto salvo no localStorage.
+		claudette = JSON.parse(window.localStorage.getItem("claudette_key"));
+	//Já a partir daqui, o código tenta atribuir os valores salvos no objeto da variável aos elementos html, algo que só vai acontecer se a variável claudette possuir esses valores, ou seja, se ela recebeu um objeto salvo no localStorage.
 	
 	//Se os elementos não conseguirem receber os valores, significa que essees valores não existem, assim como o objeto requisitado, então o teste falha e passa para o catch
-		lifeValue.innerHTML = trevor.life;
-		sanityValue.innerHTML = trevor.sanity;
-		lifeBar.style.width = `${percentage(trevor.life, trevor.maxLife)}%`;
-		sanityBar.style.width = `${percentage(trevor.sanity, trevor.maxSanity)}%`;
-		fightAttribute.innerHTML = trevor.fight;
-		intelligenceAttribute.innerHTML = trevor.intelligence;
-		shotAttribute.innerHTML = trevor.shot;
-		atletismAttribute.innerHTML = trevor.atletism;
-		ocultismAttribute.innerHTML = trevor.atletism;
-		medicineAttribute.innerHTML = trevor.atletism;
-		therapyAttribute.innerHTML = trevor.atletism;
-		skill1.innerHTML = trevor.skill1;
-		consumable.innerHTML = trevor.consumable;
+		lifeValue.innerHTML = claudette.life;
+		sanityValue.innerHTML = claudette.sanity;
+		lifeBar.style.width = `${percentage(claudette.life, claudette.maxLife)}%`;
+		sanityBar.style.width = `${percentage(claudette.sanity, claudette.maxSanity)}%`;
+		fightAttribute.innerHTML = claudette.fight;
+		intelligenceAttribute.innerHTML = claudette.intelligence;
+		shotAttribute.innerHTML = claudette.shot;
+		atletismAttribute.innerHTML = claudette.atletism;
+		ocultismAttribute.innerHTML = claudette.atletism;
+		medicineAttribute.innerHTML = claudette.atletism;
+		therapyAttribute.innerHTML = claudette.atletism;
+		skill1.innerHTML = claudette.skill1;
+		consumable.innerHTML = claudette.consumable;
 	}
 	catch {
-		trevor = {
+		claudette = {
 		life: 13,
 		sanity: 30,
 		maxLife: 13,
@@ -140,7 +140,7 @@ const getTrevor = () =>{
 	}
 };
 
-getTrevor();
+getClaudette();
 
 
 function percentage(numA, numB){
@@ -150,14 +150,14 @@ function percentage(numA, numB){
 function changeHpSa(bar, barValue, propertyName, maxPropertyName){
 	let newValue = prompt("Insira o novo valor:");
 	if (newValue !== "" && newValue !== null){
-		if (newValue > trevor[maxPropertyName]){
-			trevor[maxPropertyName] = newValue;
+		if (newValue > claudette[maxPropertyName]){
+			claudette[maxPropertyName] = newValue;
 		}
-		trevor[propertyName] = newValue;
-		bar.style.width = `${percentage(trevor[propertyName], trevor[maxPropertyName])}%`;
+		claudette[propertyName] = newValue;
+		bar.style.width = `${percentage(claudette[propertyName], claudette[maxPropertyName])}%`;
 	}
-	barValue.innerHTML = trevor[propertyName];
-	window.localStorage.setItem("trevor_key", JSON.stringify(trevor));
+	barValue.innerHTML = claudette[propertyName];
+	window.localStorage.setItem("claudette_key", JSON.stringify(claudette));
 }
 
 
@@ -252,7 +252,7 @@ sanityValue.addEventListener("click", function(){
 
 attributeButtons.forEach(function(element){
 	element.addEventListener("click", function(){
-		window.localStorage.setItem("trevor_key", JSON.stringify(trevor));
+		window.localStorage.setItem("claudette_key", JSON.stringify(claudette));
 	});
 });
 

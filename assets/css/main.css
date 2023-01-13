@@ -17,8 +17,8 @@
 }
 
 
-.vaarkis-page{
-	background-image: url("../images/general/vaarkis.jpg");
+.trevor-page{
+	background-image: url("../images/general/trevor.jpeg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -97,7 +97,7 @@
 
 #reset-button{
 	font-family: Arial, Sans-Serif;
-	font-size: 5.5vw;
+	font-size: 5vw;
 	font-weight: 900;
 	text-decoration: underline;
 	bottom: 5vw;
