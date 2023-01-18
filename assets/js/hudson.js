@@ -297,4 +297,3 @@ skill1Label.addEventListener("click", function(){
 consumableLabel.addEventListener("click", function(){
 	displayDescriptionScreen(consumableText);
 });
-
