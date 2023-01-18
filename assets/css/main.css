@@ -24,8 +24,8 @@
 	background-size: cover;
 }
 
-.alex-page{
-	background-image: url("../images/general/alex.jpg");
+.izzy-page{
+	background-image: url("../images/general/izzy.jpeg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -38,11 +38,11 @@
 	background-size: cover;
 }
 
-.jhon-page{
-	background-image: url("../images/general/jhon.jpg");
+.hudson-page{
+	background-image: url("../images/general/hudson.jpeg");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: contain;
+	background-size: cover;
 }
 
 .character-name{

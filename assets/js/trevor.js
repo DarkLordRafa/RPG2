@@ -56,8 +56,8 @@ const consumableLabel = document.querySelector("#consumable-label");
 const skill1 = document.querySelector("#skill1");
 const consumable = document.querySelector("#consumable");
 
-const skill1Text = 'Hemomancia: Controle total do sangue.<br/> "Dizem ser possível matar o oponente de dentro para fora com isso, mas só alguns de sangue puro conseguem".';
-const consumableText = 'Frenesi: Se transformar na sua real forma.<br/>"Dizem ser preciso perder bem mais que apenas a sanidade para se transformar em tal forma".';
+const skill1Text = "Trevor pode utilizar seus amuletos para encarar diversas situações, seja para identificar uma criatura ou mesmo em combate.";
+const consumableText = "Trevor lança uma de suas âmpolas de água benta no inimigo, causando pouco dano mas com acerto garantido.";
 
 
 let trevor;

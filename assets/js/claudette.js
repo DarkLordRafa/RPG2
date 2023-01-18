@@ -56,8 +56,8 @@ const consumableLabel = document.querySelector("#consumable-label");
 const skill1 = document.querySelector("#skill1");
 const consumable = document.querySelector("#consumable");
 
-const skill1Text = 'Hemomancia: Controle total do sangue.<br/> "Dizem ser possível matar o oponente de dentro para fora com isso, mas só alguns de sangue puro conseguem".';
-const consumableText = 'Frenesi: Se transformar na sua real forma.<br/>"Dizem ser preciso perder bem mais que apenas a sanidade para se transformar em tal forma".';
+const skill1Text = "Ao conviver por muito tempo com suas plantas, Claudette ganhou a habilidade de liberar uma toxina em seu corpo que aumenta sua adrenalina e sua resistência.";
+const consumableText = "Claudette pode usar suas ervas especiais com poderes curativos para recuperar um pouco de vida.";
 
 
 let claudette;
