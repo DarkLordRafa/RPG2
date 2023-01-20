@@ -82,9 +82,9 @@ function displayAttributes(){
 	intelligenceAttribute.innerHTML = hudson.intelligence;
 	shotAttribute.innerHTML = hudson.shot;
 	atletismAttribute.innerHTML = hudson.atletism;
-	ocultismAttribute.innerHTML = hudson.atletism;
-	medicineAttribute.innerHTML = hudson.atletism;
-	therapyAttribute.innerHTML = hudson.atletism;
+	ocultismAttribute.innerHTML = hudson.ocultism;
+	medicineAttribute.innerHTML = hudson.medicine;
+	therapyAttribute.innerHTML = hudson.therapy;
 	skill1.innerHTML = hudson.skill1;
 	consumable.innerHTML = hudson.consumable;
 }

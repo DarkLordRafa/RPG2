@@ -82,9 +82,9 @@ function displayAttributes(){
 	intelligenceAttribute.innerHTML = claudette.intelligence;
 	shotAttribute.innerHTML = claudette.shot;
 	atletismAttribute.innerHTML = claudette.atletism;
-	ocultismAttribute.innerHTML = claudette.atletism;
-	medicineAttribute.innerHTML = claudette.atletism;
-	therapyAttribute.innerHTML = claudette.atletism;
+	ocultismAttribute.innerHTML = claudette.ocultism;
+	medicineAttribute.innerHTML = claudette.medicine;
+	therapyAttribute.innerHTML = claudette.therapy;
 	skill1.innerHTML = claudette.skill1;
 	consumable.innerHTML = claudette.consumable;
 }

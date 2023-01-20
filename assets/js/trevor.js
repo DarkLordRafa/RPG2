@@ -82,9 +82,9 @@ function displayAttributes(){
 	intelligenceAttribute.innerHTML = trevor.intelligence;
 	shotAttribute.innerHTML = trevor.shot;
 	atletismAttribute.innerHTML = trevor.atletism;
-	ocultismAttribute.innerHTML = trevor.atletism;
-	medicineAttribute.innerHTML = trevor.atletism;
-	therapyAttribute.innerHTML = trevor.atletism;
+	ocultismAttribute.innerHTML = trevor.ocultism;
+	medicineAttribute.innerHTML = trevor.medicine;
+	therapyAttribute.innerHTML = trevor.therapy;
 	skill1.innerHTML = trevor.skill1;
 	consumable.innerHTML = trevor.consumable;
 }
