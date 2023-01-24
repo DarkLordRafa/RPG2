@@ -56,70 +56,70 @@ const consumableLabel = document.querySelector("#consumable-label");
 const skill1 = document.querySelector("#skill1");
 const consumable = document.querySelector("#consumable");
 
-const skill1Text = "Quanto mais dano recebe, ou mais louco fica, Hudson também ficará mais forte.";
-const consumableText = "Hudson utiliza um de seus cigarros com substâncias misteriosas para recuperar sanidade.";
+const skill1Text = "Quanto mais dano recebe, ou mais louco fica, Dante também ficará mais forte.";
+const consumableText = "Dante utiliza um de seus cigarros com substâncias misteriosas para recuperar sanidade.";
 
 
-let hudson;
+let dante;
 
 
 function increaseAttribute(propertyName, element){
-	hudson[propertyName] ++;
-	element.innerHTML = hudson[propertyName];
+	dante[propertyName] ++;
+	element.innerHTML = dante[propertyName];
 }
 
 function decreaseAttribute(propertyName, element){
-	hudson[propertyName] --;
-	element.innerHTML = hudson[propertyName];
+	dante[propertyName] --;
+	element.innerHTML = dante[propertyName];
 }
 
 function displayAttributes(){
-	lifeValue.innerHTML = hudson.life;
-	sanityValue.innerHTML = hudson.sanity;
-	lifeBar.style.width = `${percentage(hudson.life, hudson.maxLife)}%`;
-	sanityBar.style.width = `${percentage(hudson.sanity, hudson.maxSanity)}%`;
-	fightAttribute.innerHTML = hudson.fight;
-	intelligenceAttribute.innerHTML = hudson.intelligence;
-	shotAttribute.innerHTML = hudson.shot;
-	atletismAttribute.innerHTML = hudson.atletism;
-	ocultismAttribute.innerHTML = hudson.ocultism;
-	medicineAttribute.innerHTML = hudson.medicine;
-	therapyAttribute.innerHTML = hudson.therapy;
-	skill1.innerHTML = hudson.skill1;
-	consumable.innerHTML = hudson.consumable;
+	lifeValue.innerHTML = dante.life;
+	sanityValue.innerHTML = dante.sanity;
+	lifeBar.style.width = `${percentage(dante.life, dante.maxLife)}%`;
+	sanityBar.style.width = `${percentage(dante.sanity, dante.maxSanity)}%`;
+	fightAttribute.innerHTML = dante.fight;
+	intelligenceAttribute.innerHTML = dante.intelligence;
+	shotAttribute.innerHTML = dante.shot;
+	atletismAttribute.innerHTML = dante.atletism;
+	ocultismAttribute.innerHTML = dante.ocultism;
+	medicineAttribute.innerHTML = dante.medicine;
+	therapyAttribute.innerHTML = dante.therapy;
+	skill1.innerHTML = dante.skill1;
+	consumable.innerHTML = dante.consumable;
 }
 
 function resetStats(){
-	window.localStorage.removeItem("hudson_key");
-	getHudson();
+	window.localStorage.removeItem("dante_key");
+	getDante();
 	displayAttributes();
 	confirmResetScreen.classList.add("d-none");
 }
 
 
-const getHudson = () =>{
+const getDante = () =>{
 	try {
 	//Variável recebendo o objeto salvo (não significa que ele exista, sendo assim, o teste não falha mesmo se o objeto não existir)
-		hudson = JSON.parse(window.localStorage.getItem("hudson_key"));
-	//Já a partir daqui, o código tenta atribuir os valores salvos no objeto da variável aos elementos html, algo que só vai acontecer se a variável hudson possuir esses valores, ou seja, se ela recebeu um objeto salvo no localStorage.
+		dante = JSON.parse(window.localStorage.getItem("dante_key"));
+	//Já a partir daqui, o código tenta atribuir os valores salvos no objeto da variável aos elementos html, algo que só vai acontecer se a variável dante possuir esses valores, ou seja, se ela recebeu um objeto salvo no localStorage.
 	
 	//Se os elementos não conseguirem receber os valores, significa que essees valores não existem, assim como o objeto requisitado, então o teste falha e passa para o catch
-		lifeValue.innerHTML = hudson.life;
-		sanityValue.innerHTML = hudson.sanity;
-		lifeBar.style.width = `${percentage(hudson.life, hudson.maxLife)}%`;
-		sanityBar.style.width = `${percentage(hudson.sanity, hudson.maxSanity)}%`;
-		fightAttribute.innerHTML = hudson.fight;
-		intelligenceAttribute.innerHTML = hudson.intelligence;
-		shotAttribute.innerHTML = hudson.shot;
-		atletismAttribute.innerHTML = hudson.atletism;
-		ocultismAttribute.innerHTML = hudson.atletism;
-		medicineAttribute.innerHTML = hudson.atletism;
-		therapyAttribute.innerHTML = hudson.atletism;
-		skill1.innerHTML = hudson.skill1;
-		consumable.innerHTML = hudson.consumable;
+		lifeValue.innerHTML = dante.life;
+		sanityValue.innerHTML = dante.sanity;
+		lifeBar.style.width = `${percentage(dante.life, dante.maxLife)}%`;
+		sanityBar.style.width = `${percentage(dante.sanity, dante.maxSanity)}%`;
+		fightAttribute.innerHTML = dante.fight;
+		intelligenceAttribute.innerHTML = dante.intelligence;
+		shotAttribute.innerHTML = dante.shot;
+		atletismAttribute.innerHTML = dante.atletism;
+		ocultismAttribute.innerHTML = dante.atletism;
+		medicineAttribute.innerHTML = dante.atletism;
+		therapyAttribute.innerHTML = dante.atletism;
+		skill1.innerHTML = dante.skill1;
+		consumable.innerHTML = dante.consumable;
 	}
 	catch {
-		hudson = {
+		dante = {
 		life: 20,
 		sanity: 15,
 		maxLife: 20,
@@ -140,7 +140,7 @@ const getHudson = () =>{
 	}
 };
 
-getHudson();
+getDante();
 
 
 function percentage(numA, numB){
@@ -150,14 +150,14 @@ function percentage(numA, numB){
 function changeHpSa(bar, barValue, propertyName, maxPropertyName){
 	let newValue = prompt("Insira o novo valor:");
 	if (newValue !== "" && newValue !== null){
-		if (newValue > hudson[maxPropertyName]){
-			hudson[maxPropertyName] = newValue;
+		if (newValue > dante[maxPropertyName]){
+			dante[maxPropertyName] = newValue;
 		}
-		hudson[propertyName] = newValue;
-		bar.style.width = `${percentage(hudson[propertyName], hudson[maxPropertyName])}%`;
+		dante[propertyName] = newValue;
+		bar.style.width = `${percentage(dante[propertyName], dante[maxPropertyName])}%`;
 	}
-	barValue.innerHTML = hudson[propertyName];
-	window.localStorage.setItem("hudson_key", JSON.stringify(hudson));
+	barValue.innerHTML = dante[propertyName];
+	window.localStorage.setItem("dante_key", JSON.stringify(dante));
 }
 
 
@@ -252,7 +252,7 @@ sanityValue.addEventListener("click", function(){
 
 attributeButtons.forEach(function(element){
 	element.addEventListener("click", function(){
-		window.localStorage.setItem("hudson_key", JSON.stringify(hudson));
+		window.localStorage.setItem("dante_key", JSON.stringify(dante));
 	});
 });
 
