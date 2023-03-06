@@ -148,7 +148,7 @@ function percentage(numA, numB){
 }
 
 function changeHpSa(bar, barValue, propertyName, maxPropertyName){
-	let newValue = prompt("Insira o novo valor:");
+	let newValue = parseInt(prompt("Insira o novo valor:"));
 	if (newValue !== "" && newValue !== null){
 		if (newValue > izzy[maxPropertyName]){
 			izzy[maxPropertyName] = newValue;
