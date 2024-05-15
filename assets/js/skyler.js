@@ -56,74 +56,74 @@ const consumableLabel = document.querySelector("#consumable-label");
 const skill1 = document.querySelector("#skill1");
 const consumable = document.querySelector("#consumable");
 
-const skill1Text = "Quanto mais dano recebe, ou mais louco fica, Dante também ficará mais forte.";
-const consumableText = "Dante utiliza um de seus cigarros com substâncias misteriosas para recuperar sanidade.";
+const skill1Text = "Skyler possui a capacidade de domar animais.";
+const consumableText = "Skyler utiliza seus kits médicos que carrega consigo para curar seus ferimentos e de seus aliados.";
 
 
-let dante;
+let skyler;
 
 
 function increaseAttribute(propertyName, element){
-	dante[propertyName] ++;
-	element.innerHTML = dante[propertyName];
+	skyler[propertyName] ++;
+	element.innerHTML = skyler[propertyName];
 }
 
 function decreaseAttribute(propertyName, element){
-	dante[propertyName] --;
-	element.innerHTML = dante[propertyName];
+	skyler[propertyName] --;
+	element.innerHTML = skyler[propertyName];
 }
 
 function displayAttributes(){
-	lifeValue.innerHTML = dante.life;
-	sanityValue.innerHTML = dante.sanity;
-	lifeBar.style.width = `${percentage(dante.life, dante.maxLife)}%`;
-	sanityBar.style.width = `${percentage(dante.sanity, dante.maxSanity)}%`;
-	fightAttribute.innerHTML = dante.fight;
-	intelligenceAttribute.innerHTML = dante.intelligence;
-	shotAttribute.innerHTML = dante.shot;
-	atletismAttribute.innerHTML = dante.atletism;
-	ocultismAttribute.innerHTML = dante.ocultism;
-	medicineAttribute.innerHTML = dante.medicine;
-	therapyAttribute.innerHTML = dante.therapy;
-	skill1.innerHTML = dante.skill1;
-	consumable.innerHTML = dante.consumable;
+	lifeValue.innerHTML = skyler.life;
+	sanityValue.innerHTML = skyler.sanity;
+	lifeBar.style.width = `${percentage(skyler.life, skyler.maxLife)}%`;
+	sanityBar.style.width = `${percentage(skyler.sanity, skyler.maxSanity)}%`;
+	fightAttribute.innerHTML = skyler.fight;
+	intelligenceAttribute.innerHTML = skyler.intelligence;
+	shotAttribute.innerHTML = skyler.shot;
+	atletismAttribute.innerHTML = skyler.atletism;
+	ocultismAttribute.innerHTML = skyler.ocultism;
+	medicineAttribute.innerHTML = skyler.medicine;
+	therapyAttribute.innerHTML = skyler.therapy;
+	skill1.innerHTML = skyler.skill1;
+	consumable.innerHTML = skyler.consumable;
 }
 
 function resetStats(){
-	window.localStorage.removeItem("dante_key");
-	getDante();
+	window.localStorage.removeItem("skyler_key");
+	getSkyler();
 	displayAttributes();
 	confirmResetScreen.classList.add("d-none");
 }
 
 
-const getDante = () =>{
+const getSkyler = () =>{
 	try {
 	//Variável recebendo o objeto salvo (não significa que ele exista, sendo assim, o teste não falha mesmo se o objeto não existir)
-		dante = JSON.parse(window.localStorage.getItem("dante_key"));
-	//Já a partir daqui, o código tenta atribuir os valores salvos no objeto da variável aos elementos html, algo que só vai acontecer se a variável dante possuir esses valores, ou seja, se ela recebeu um objeto salvo no localStorage.
+		skyler = JSON.parse(window.localStorage.getItem("skyler_key"));
+	//Já a partir daqui, o código tenta atribuir os valores salvos no objeto da variável aos elementos html, algo que só vai acontecer se a variável skyler possuir esses valores, ou seja, se ela recebeu um objeto salvo no localStorage.
 	
 	//Se os elementos não conseguirem receber os valores, significa que essees valores não existem, assim como o objeto requisitado, então o teste falha e passa para o catch
-		lifeValue.innerHTML = dante.life;
-		sanityValue.innerHTML = dante.sanity;
-		lifeBar.style.width = `${percentage(dante.life, dante.maxLife)}%`;
-		sanityBar.style.width = `${percentage(dante.sanity, dante.maxSanity)}%`;
-		fightAttribute.innerHTML = dante.fight;
-		intelligenceAttribute.innerHTML = dante.intelligence;
-		shotAttribute.innerHTML = dante.shot;
-		atletismAttribute.innerHTML = dante.atletism;
-		ocultismAttribute.innerHTML = dante.atletism;
-		medicineAttribute.innerHTML = dante.atletism;
-		therapyAttribute.innerHTML = dante.atletism;
-		skill1.innerHTML = dante.skill1;
-		consumable.innerHTML = dante.consumable;
+		lifeValue.innerHTML = skyler.life;
+		sanityValue.innerHTML = skyler.sanity;
+		lifeBar.style.width = `${percentage(skyler.life, skyler.maxLife)}%`;
+		sanityBar.style.width = `${percentage(skyler.sanity, skyler.maxSanity)}%`;
+		fightAttribute.innerHTML = skyler.fight;
+		intelligenceAttribute.innerHTML = skyler.intelligence;
+		shotAttribute.innerHTML = skyler.shot;
+		atletismAttribute.innerHTML = skyler.atletism;
+		ocultismAttribute.innerHTML = skyler.atletism;
+		medicineAttribute.innerHTML = skyler.atletism;
+		therapyAttribute.innerHTML = skyler.atletism;
+		skill1.innerHTML = skyler.skill1;
+		consumable.innerHTML = skyler.consumable;
 	}
 	catch {
-		dante = {
-		life: 20,
-		sanity: 15,
-		maxLife: 20,
-		maxSanity: 15,
+		skyler = {
+		life: 17,
+		sanity: 25,
+		maxLife: 17,
+		maxSanity: 25,
 		fight: 1,
 		intelligence: 1,
 		shot: 1,
@@ -140,7 +140,7 @@ const getDante = () =>{
 	}
 };
 
-getDante();
+getSkyler();
 
 
 function percentage(numA, numB){
@@ -153,14 +153,14 @@ function changeHpSa(bar, barValue, propertyName, maxPropertyName){
 		newValue = 00;
 	}
 	if (newValue !== "" && newValue !== null && newValue !== 00){
-		if (newValue > dante[maxPropertyName]){
-			dante[maxPropertyName] = newValue;
+		if (newValue > skyler[maxPropertyName]){
+			skyler[maxPropertyName] = newValue;
 		}
-		dante[propertyName] = newValue;
-		bar.style.width = `${percentage(dante[propertyName], dante[maxPropertyName])}%`;
+		skyler[propertyName] = newValue;
+		bar.style.width = `${percentage(skyler[propertyName], skyler[maxPropertyName])}%`;
 	}
-	barValue.innerHTML = dante[propertyName];
-	window.localStorage.setItem("dante_key", JSON.stringify(dante));
+	barValue.innerHTML = skyler[propertyName];
+	window.localStorage.setItem("skyler_key", JSON.stringify(skyler));
 }
 
 
@@ -255,7 +255,7 @@ sanityValue.addEventListener("click", function(){
 
 attributeButtons.forEach(function(element){
 	element.addEventListener("click", function(){
-		window.localStorage.setItem("dante_key", JSON.stringify(dante));
+		window.localStorage.setItem("skyler_key", JSON.stringify(skyler));
 	});
 });
 

@@ -24,11 +24,11 @@
 	background-size: cover;
 }
 
-.izzy-page{
-	background-image: url("../images/general/izzy.jpeg");
+.skyler-page{
+	background-image: url("../images/general/skyler.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: contain;
 }
 
 .claudette-page{
@@ -38,11 +38,11 @@
 	background-size: cover;
 }
 
-.dante-page{
-	background-image: url("../images/general/dante.jpeg");
+.liam-page{
+	background-image: url("../images/general/liam.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: contain;
 }
 
 .character-name{

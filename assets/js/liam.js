@@ -56,74 +56,74 @@ const consumableLabel = document.querySelector("#consumable-label");
 const skill1 = document.querySelector("#skill1");
 const consumable = document.querySelector("#consumable");
 
-const skill1Text = "Izzy possui a capacidade de domar animais.";
-const consumableText = "Izzy utiliza seus kits médicos que carrega consigo para curar seus ferimentos e de seus aliados.";
+const skill1Text = "Quanto mais dano recebe, ou mais louco fica, Liam também ficará mais forte.";
+const consumableText = "Liam utiliza um de seus cigarros com substâncias misteriosas para recuperar sanidade.";
 
 
-let izzy;
+let liam;
 
 
 function increaseAttribute(propertyName, element){
-	izzy[propertyName] ++;
-	element.innerHTML = izzy[propertyName];
+	liam[propertyName] ++;
+	element.innerHTML = liam[propertyName];
 }
 
 function decreaseAttribute(propertyName, element){
-	izzy[propertyName] --;
-	element.innerHTML = izzy[propertyName];
+	liam[propertyName] --;
+	element.innerHTML = liam[propertyName];
 }
 
 function displayAttributes(){
-	lifeValue.innerHTML = izzy.life;
-	sanityValue.innerHTML = izzy.sanity;
-	lifeBar.style.width = `${percentage(izzy.life, izzy.maxLife)}%`;
-	sanityBar.style.width = `${percentage(izzy.sanity, izzy.maxSanity)}%`;
-	fightAttribute.innerHTML = izzy.fight;
-	intelligenceAttribute.innerHTML = izzy.intelligence;
-	shotAttribute.innerHTML = izzy.shot;
-	atletismAttribute.innerHTML = izzy.atletism;
-	ocultismAttribute.innerHTML = izzy.ocultism;
-	medicineAttribute.innerHTML = izzy.medicine;
-	therapyAttribute.innerHTML = izzy.therapy;
-	skill1.innerHTML = izzy.skill1;
-	consumable.innerHTML = izzy.consumable;
+	lifeValue.innerHTML = liam.life;
+	sanityValue.innerHTML = liam.sanity;
+	lifeBar.style.width = `${percentage(liam.life, liam.maxLife)}%`;
+	sanityBar.style.width = `${percentage(liam.sanity, liam.maxSanity)}%`;
+	fightAttribute.innerHTML = liam.fight;
+	intelligenceAttribute.innerHTML = liam.intelligence;
+	shotAttribute.innerHTML = liam.shot;
+	atletismAttribute.innerHTML = liam.atletism;
+	ocultismAttribute.innerHTML = liam.ocultism;
+	medicineAttribute.innerHTML = liam.medicine;
+	therapyAttribute.innerHTML = liam.therapy;
+	skill1.innerHTML = liam.skill1;
+	consumable.innerHTML = liam.consumable;
 }
 
 function resetStats(){
-	window.localStorage.removeItem("izzy_key");
-	getIzzy();
+	window.localStorage.removeItem("liam_key");
+	getLiam();
 	displayAttributes();
 	confirmResetScreen.classList.add("d-none");
 }
 
 
-const getIzzy = () =>{
+const getLiam = () =>{
 	try {
 	//Variável recebendo o objeto salvo (não significa que ele exista, sendo assim, o teste não falha mesmo se o objeto não existir)
-		izzy = JSON.parse(window.localStorage.getItem("izzy_key"));
-	//Já a partir daqui, o código tenta atribuir os valores salvos no objeto da variável aos elementos html, algo que só vai acontecer se a variável izzy possuir esses valores, ou seja, se ela recebeu um objeto salvo no localStorage.
+		liam = JSON.parse(window.localStorage.getItem("liam_key"));
+	//Já a partir daqui, o código tenta atribuir os valores salvos no objeto da variável aos elementos html, algo que só vai acontecer se a variável liam possuir esses valores, ou seja, se ela recebeu um objeto salvo no localStorage.
 	
 	//Se os elementos não conseguirem receber os valores, significa que essees valores não existem, assim como o objeto requisitado, então o teste falha e passa para o catch
-		lifeValue.innerHTML = izzy.life;
-		sanityValue.innerHTML = izzy.sanity;
-		lifeBar.style.width = `${percentage(izzy.life, izzy.maxLife)}%`;
-		sanityBar.style.width = `${percentage(izzy.sanity, izzy.maxSanity)}%`;
-		fightAttribute.innerHTML = izzy.fight;
-		intelligenceAttribute.innerHTML = izzy.intelligence;
-		shotAttribute.innerHTML = izzy.shot;
-		atletismAttribute.innerHTML = izzy.atletism;
-		ocultismAttribute.innerHTML = izzy.atletism;
-		medicineAttribute.innerHTML = izzy.atletism;
-		therapyAttribute.innerHTML = izzy.atletism;
-		skill1.innerHTML = izzy.skill1;
-		consumable.innerHTML = izzy.consumable;
+		lifeValue.innerHTML = liam.life;
+		sanityValue.innerHTML = liam.sanity;
+		lifeBar.style.width = `${percentage(liam.life, liam.maxLife)}%`;
+		sanityBar.style.width = `${percentage(liam.sanity, liam.maxSanity)}%`;
+		fightAttribute.innerHTML = liam.fight;
+		intelligenceAttribute.innerHTML = liam.intelligence;
+		shotAttribute.innerHTML = liam.shot;
+		atletismAttribute.innerHTML = liam.atletism;
+		ocultismAttribute.innerHTML = liam.atletism;
+		medicineAttribute.innerHTML = liam.atletism;
+		therapyAttribute.innerHTML = liam.atletism;
+		skill1.innerHTML = liam.skill1;
+		consumable.innerHTML = liam.consumable;
 	}
 	catch {
-		izzy = {
-		life: 17,
-		sanity: 25,
-		maxLife: 17,
-		maxSanity: 25,
+		liam = {
+		life: 20,
+		sanity: 15,
+		maxLife: 20,
+		maxSanity: 15,
 		fight: 1,
 		intelligence: 1,
 		shot: 1,
@@ -140,7 +140,7 @@ const getIzzy = () =>{
 	}
 };
 
-getIzzy();
+getLiam();
 
 
 function percentage(numA, numB){
@@ -153,14 +153,14 @@ function changeHpSa(bar, barValue, propertyName, maxPropertyName){
 		newValue = 00;
 	}
 	if (newValue !== "" && newValue !== null && newValue !== 00){
-		if (newValue > izzy[maxPropertyName]){
-			izzy[maxPropertyName] = newValue;
+		if (newValue > liam[maxPropertyName]){
+			liam[maxPropertyName] = newValue;
 		}
-		izzy[propertyName] = newValue;
-		bar.style.width = `${percentage(izzy[propertyName], izzy[maxPropertyName])}%`;
+		liam[propertyName] = newValue;
+		bar.style.width = `${percentage(liam[propertyName], liam[maxPropertyName])}%`;
 	}
-	barValue.innerHTML = izzy[propertyName];
-	window.localStorage.setItem("izzy_key", JSON.stringify(izzy));
+	barValue.innerHTML = liam[propertyName];
+	window.localStorage.setItem("liam_key", JSON.stringify(liam));
 }
 
 
@@ -255,7 +255,7 @@ sanityValue.addEventListener("click", function(){
 
 attributeButtons.forEach(function(element){
 	element.addEventListener("click", function(){
-		window.localStorage.setItem("izzy_key", JSON.stringify(izzy));
+		window.localStorage.setItem("liam_key", JSON.stringify(liam));
 	});
 });
 
